@@ -57,8 +57,7 @@ public class PersonConsoleAdapter {
                 Person newperson = new Person(newId, newname, newLastName, newidcity, newaddress, newage, newemail, newidgender);
                 personService.createPerson(newperson);
             });
-            System.out.println("Dese crear otra persona?, de ser el caso presione [S] de lo contrario cualquier tecla.");
-            option = sc.nextLine();
+            
         }
     }
 
@@ -133,10 +132,11 @@ public class PersonConsoleAdapter {
 
         Optional<Person> person = personService.getPersonById(personId);
 
-        person.ifPresentOrElse(a->{
+        person.ifPresentOrElse(a-> System.out.println("Persona no encontrada")
+        , ()-> {
             personService.deletePerson(personId);
             System.out.println("Persona eliminada");
-        }, ()-> System.out.println("Persona no encontrada"));
+        });
         
         System.out.println("Presione cualquier tecla");
         sc.nextLine();  
