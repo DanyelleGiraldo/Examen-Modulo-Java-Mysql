@@ -113,7 +113,7 @@ public class PersonSQLRepository implements PersonRepository {
 
     @Override
     public void delete(int id) {
-        String query = "DELETE FROM persons WHERE id = ?";
+        String query = "CALL deleteperson(?)";
         try (Connection connection = DatabaseConfig.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
 

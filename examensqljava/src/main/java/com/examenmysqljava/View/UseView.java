@@ -13,6 +13,10 @@ import com.examenmysqljava.entities.skill.infrastructure.in.SkillConsoleAdapter;
 import com.examenmysqljava.entities.skill.infrastructure.out.SkillSQLRepository;
 
 public class UseView {
+
+    public UseView() {
+    }
+
     PersonSQLRepository personSQLRepository = new PersonSQLRepository();
     Person_skillSQLRepository person_skillSQLRepository = new Person_skillSQLRepository();
     SkillSQLRepository skillsqlRepository = new SkillSQLRepository();

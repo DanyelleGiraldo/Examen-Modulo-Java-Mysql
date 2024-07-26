@@ -1,7 +1,10 @@
 package com.examenmysqljava;
 
+import com.examenmysqljava.View.UseView;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        UseView useView = new UseView();
+        useView.start();
     }
 }
