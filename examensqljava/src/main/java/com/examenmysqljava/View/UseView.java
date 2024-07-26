@@ -34,10 +34,11 @@ public class UseView {
 
     public void start(){
         Scanner sc = new Scanner(System.in);
+        UseView useView = new UseView();
 
         System.out.println("Seleccione una opcion ");
-        System.out.println("1.Registrar una Persona");
-        System.out.println("2.Asignar una Habilidad a una Persona");
+        System.out.println("1: Registrar una Persona");
+        System.out.println("2: Asignar una Habilidad a una Persona");
         System.out.println("3: Crear una Nueva Habilidad");
         System.out.println("4: Consultar Personas por Habilidad");
         System.out.println("5: Actualizar Información de una Persona");
@@ -48,22 +49,28 @@ public class UseView {
         switch (opcion) {
             case 1:
                 personConsoleAdapter.createPerson();
+                useView.start();
                 break;
             
             case 2:
                 person_SkillsConsoleAdapter.asignSkill();
+                useView.start();
                 break;
             case 3:
                 skillConsoleAdapter.createskill();
+                useView.start();
                 break;
             case 4: 
                 personConsoleAdapter.searchPersonBySkill();
+                useView.start();
                 break;
             case 5:
                 personConsoleAdapter.updatePerson();
+                useView.start();
                 break;
             case 6:
                 personConsoleAdapter.deletePerson();
+                useView.start();
                 break;
             default:
                 break;
