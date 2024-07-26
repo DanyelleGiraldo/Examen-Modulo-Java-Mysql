@@ -1,5 +1,6 @@
 package com.examenmysqljava.entities.Persons.infrastructure.in;
 
+
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -11,6 +12,7 @@ public class PersonConsoleAdapter {
     private final Scanner sc = new Scanner(System.in);
     private final PersonService personService;
 
+    
     public PersonConsoleAdapter(PersonService personService) {
         this.personService = personService;
     }
@@ -140,9 +142,8 @@ public class PersonConsoleAdapter {
         sc.nextLine();  
     }
 
-    public void asignskill(){
-        
-    }
+    
+    
 
 
 }

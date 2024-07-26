@@ -33,7 +33,5 @@ public class PersonService {
         personRepository.delete(id);
     }
 
-    public void asignskill() {
-        personRepository.asignskill();
-    }
+    
 }

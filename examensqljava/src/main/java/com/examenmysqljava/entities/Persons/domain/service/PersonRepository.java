@@ -11,6 +11,5 @@ public interface PersonRepository {
     List<Person> findBySkill(int id);
     Optional<Person> getPersonById(int id);
     void delete(int id);
-    void asignskill();
 
 }
