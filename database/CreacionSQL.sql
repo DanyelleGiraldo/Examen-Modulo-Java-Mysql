@@ -64,3 +64,13 @@ create table persons_skill(
     idskill int,
     Foreign Key (idskill) REFERENCES skill(id)
 );
+
+
+create procedure deleteperson(
+	in idperson int)
+begin 
+	DELETE FROM persons_skill WHERE iperson = idperson; 
+	DELETE FROM persons WHERE id = idperson;
+end
+
+
