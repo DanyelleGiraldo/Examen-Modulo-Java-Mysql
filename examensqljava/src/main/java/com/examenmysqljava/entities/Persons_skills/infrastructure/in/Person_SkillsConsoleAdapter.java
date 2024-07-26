@@ -10,16 +10,20 @@ import com.examenmysqljava.entities.Persons.application.PersonService;
 import com.examenmysqljava.entities.Persons.domain.entity.Person;
 import com.examenmysqljava.entities.Persons_skills.application.Person_skillsService;
 import com.examenmysqljava.entities.Persons_skills.domain.entity.Persons_skills;
+import com.examenmysqljava.entities.skill.application.SkillService;
+import com.examenmysqljava.entities.skill.domain.entity.Skill;
 
 public class Person_SkillsConsoleAdapter {
     private final Scanner sc = new Scanner(System.in);
     private final PersonService personService;
     private final Person_skillsService person_skillsService;
-
-    
-    public Person_SkillsConsoleAdapter(PersonService personService, Person_skillsService person_skillsService) {
+    private final SkillService skillService;
+   
+    public Person_SkillsConsoleAdapter(PersonService personService, Person_skillsService person_skillsService,
+            SkillService skillService) {
         this.personService = personService;
         this.person_skillsService = person_skillsService;
+        this.skillService = skillService;
     }
 
 
@@ -46,9 +50,14 @@ public class Person_SkillsConsoleAdapter {
             System.out.println("Ingrese el id de la skill.");
             int idSkill = sc.nextInt();
             sc.nextLine(); 
-            
+
+            Optional<Skill> skill = skillService.getSkillByID(idSkill);
+            skill.ifPresentOrElse(s-> {
             Persons_skills newpersons_skills = new Persons_skills(fecha, personId, idSkill);
             person_skillsService.asignskill(newpersons_skills);
+            }, ()->System.out.println("Esa skill no existe"));
+            
+            
         }, 
         () -> System.out.println("Esa persona no existe"));
     }
