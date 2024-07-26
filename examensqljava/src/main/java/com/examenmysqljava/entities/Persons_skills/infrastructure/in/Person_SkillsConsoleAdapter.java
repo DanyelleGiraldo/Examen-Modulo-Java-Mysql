@@ -55,6 +55,7 @@ public class Person_SkillsConsoleAdapter {
             skill.ifPresentOrElse(s-> {
             Persons_skills newpersons_skills = new Persons_skills(fecha, personId, idSkill);
             person_skillsService.asignskill(newpersons_skills);
+            System.out.println("Se asigno con exito");
             }, ()->System.out.println("Esa skill no existe"));
             
             
